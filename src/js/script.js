@@ -35,17 +35,29 @@ function pick() {
 			var target = e.target;
 			if (target.classList.contains('seat')) {
 				target.classList.toggle('chosen');
-				var whichRow = target.parentNode.firstChild.textContent;
-				var whichSeat = target.textContent;
-				console.log(`Seat ${whichSeat} in ${whichRow} row`);
-			}
-			
-		});
-		
+			}			
+		});	
 	});
 };
 
 pick();
+
+function selectedSeats() {
+	var chosenSeat = document.getElementsByClassName('chosen');
+	var heading = document.querySelector('header');
+	var information = document.createElement('span');
+	var whichSeat = [];
+	var whichRow = [];
+	console.log(information);
+
+	for (var i = 0; i < chosenSeat.length; i++) {
+		whichSeat.push(chosenSeat[i].textContent);
+		whichRow.push(chosenSeat[i].parentNode.firstChild.textContent);
+		information.textContent += `Seat: ${whichSeat[i]} row: ${whichRow[i]}, `;
+	}
+	heading.appendChild(information);
+	
+}
 
 function confirm() {
 	var btnNext = document.getElementById('next'),
@@ -60,12 +72,20 @@ function confirm() {
 		e.preventDefault();
 		modal.classList.add('open');
 		modalConfirm.classList.add('show');
+
+		selectedSeats();
+		
 	});
 
 	back.addEventListener('click', function(e) {
 		e.preventDefault();
 		modal.classList.remove('open');
 		modalConfirm.classList.remove('show');
+
+		(function clearInfo() {
+			var information = document.querySelector('header span');
+			var heading = document.getElementsByTagName('header')[0].removeChild(information);
+		})();
 	});
 
 	confirmBtn.addEventListener('click', function(e) {

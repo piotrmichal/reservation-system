@@ -22,7 +22,9 @@
 	border-radius: .3rem;
 }
 
-span {
+header {
+	margin-bottom: 1rem;
+	display: block;
 	font-weight: bold;
 }
 
@@ -38,6 +40,7 @@ button {
 	border-radius: .3rem;
 	text-align: center;
 }
+
 
 .back {
 	background-image: linear-gradient(#FFC700, #FF6200);
