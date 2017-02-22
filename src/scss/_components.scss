@@ -57,3 +57,15 @@ div.open {
 div.modal div.show {
 	display: flex;
 }
+
+div.reserved {
+	background-color: #101010;
+	color: #555;
+
+	&:hover {
+		background-color: #101010;
+		color: #555;
+		opacity: 1;
+		cursor: not-allowed;
+	}
+}

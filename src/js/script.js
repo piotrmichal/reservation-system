@@ -33,9 +33,11 @@ function pick() {
 	[].forEach.call(row, function(e) {
 		e.addEventListener('click', function(e){
 			var target = e.target;
-			if (target.classList.contains('seat')) {
+			if (target.classList.contains('reserved')) {
+				return false;
+			} else if (target.classList.contains('seat')) {
 				target.classList.toggle('chosen');
-			}			
+			}
 		});	
 	});
 };
@@ -43,12 +45,11 @@ function pick() {
 pick();
 
 function selectedSeats() {
-	var chosenSeat = document.getElementsByClassName('chosen');
-	var heading = document.querySelector('header');
-	var information = document.createElement('span');
-	var whichSeat = [];
-	var whichRow = [];
-	console.log(information);
+	var chosenSeat = document.getElementsByClassName('chosen'),
+		heading = document.querySelector('header'),
+		information = document.createElement('span'),
+		whichSeat = [],
+		whichRow = [];
 
 	for (var i = 0; i < chosenSeat.length; i++) {
 		whichSeat.push(chosenSeat[i].textContent);
@@ -56,7 +57,6 @@ function selectedSeats() {
 		information.textContent += `Seat: ${whichSeat[i]} row: ${whichRow[i]}, `;
 	}
 	heading.appendChild(information);
-	
 }
 
 function confirm() {
@@ -66,7 +66,9 @@ function confirm() {
 		back = document.querySelector('.back'),
 		confirmBtn = document.querySelector('.confirmBtn'),
 		modalSummary = document.querySelector('.summary'),
-		okBtn = document.querySelector('.summary .confirmBtn');
+		okBtn = document.querySelector('.summary .confirmBtn'),
+		chosenSeat = document.getElementsByClassName('chosen');
+		reserved = document.getElementsByClassName('reserved');
 
 	btnNext.addEventListener('click', function(e) {
 		e.preventDefault();
@@ -74,7 +76,6 @@ function confirm() {
 		modalConfirm.classList.add('show');
 
 		selectedSeats();
-		
 	});
 
 	back.addEventListener('click', function(e) {
@@ -82,10 +83,7 @@ function confirm() {
 		modal.classList.remove('open');
 		modalConfirm.classList.remove('show');
 
-		(function clearInfo() {
-			var information = document.querySelector('header span');
-			var heading = document.getElementsByTagName('header')[0].removeChild(information);
-		})();
+		clearInfo();
 	});
 
 	confirmBtn.addEventListener('click', function(e) {
@@ -99,7 +97,21 @@ function confirm() {
 		modal.classList.remove('open');
 		modalSummary.classList.remove('show');
 		modalConfirm.classList.remove('show');
+		clearInfo();
+
+		[].forEach.call(chosenSeat, function(el) {
+			el.classList.add('reserved');
+		});
+
+		[].forEach.call(reserved, function(el) {
+			el.classList.remove('chosen');
+		});
 	});
 };
 
 confirm();
+
+function clearInfo() {
+	var information = document.querySelector('header span');
+	var heading = document.getElementsByTagName('header')[0].removeChild(information);
+};
