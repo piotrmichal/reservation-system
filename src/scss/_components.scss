@@ -1,5 +1,7 @@
-.chosen {
-	background-color: rgba(212, 252, 35, .5);
+div.seat.chosen {
+	background: url('../img/user.png') center, #85A100;
+	background-size: cover;
+	color: transparent;
 }
 
 .space {
@@ -58,14 +60,13 @@ div.modal div.show {
 	display: flex;
 }
 
-div.reserved {
-	background-color: #101010;
-	color: #555;
+div.seat.reserved {
+	background: url('../img/user.png') center, #101010;
+	background-size: cover;
+	color: transparent;
+	opacity: .7;
 
 	&:hover {
-		background-color: #101010;
-		color: #555;
-		opacity: 1;
 		cursor: not-allowed;
 	}
 }

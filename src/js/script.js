@@ -2,7 +2,7 @@ var seats = document.querySelector('.seats');
 
 function create() {
 	var fragm = document.createDocumentFragment(),
-		num = 20;
+		num = 16;
 
 	for (var i = 1; i <= 9; i++) {
 		var row = document.createElement('div');
@@ -15,7 +15,7 @@ function create() {
 			seat.classList.add('seat');
 			seat.textContent = j;
 			row.appendChild(seat);
-			if (j === 6 || j === 14)  {
+			if (j === 4 || j === 12)  {
 				seat.classList.add('space');
 			}
 		}
