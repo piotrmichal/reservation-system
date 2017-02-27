@@ -18,8 +18,8 @@ div.seat.chosen {
 	font-size: 1.8rem;
 	color: #303030;
 	background-color: #FFF;
-	height: 80%;
-	width: 40%;
+	height: 52rem;
+	width: 44rem;
 	text-align: center;
 	border-radius: .3rem;
 }
@@ -30,7 +30,7 @@ header {
 	font-weight: bold;
 }
 
-button {
+form button {
 	margin: 3.5rem 2rem 0 0;
 	background-image: linear-gradient(#D4FC23, #416D00);
 	color: #202020;
@@ -41,6 +41,7 @@ button {
 	padding: .8rem 4rem;
 	border-radius: .3rem;
 	text-align: center;
+	cursor: pointer;
 }
 
 
