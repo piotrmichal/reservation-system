@@ -28,21 +28,34 @@ function create() {
 
 create();
 
-function pick() {
+function checkSelected() {
+	var next = document.getElementById('next');
+
+	if (document.querySelector('.chosen')) {
+		next.classList.add('active');
+	} else {
+		next.classList.remove('active');
+	}
+};
+
+function select() {
 	var row = document.getElementsByClassName('row');
 	[].forEach.call(row, function(e) {
 		e.addEventListener('click', function(e){
 			var target = e.target;
+			
 			if (target.classList.contains('reserved')) {
 				return false;
 			} else if (target.classList.contains('seat')) {
 				target.classList.toggle('chosen');
 			}
-		});	
+
+			target.childNodes.forEach(checkSelected); 
+		});
 	});
 };
 
-pick();
+select();
 
 function selectedSeats() {
 	var chosenSeat = document.getElementsByClassName('chosen'),
@@ -59,6 +72,30 @@ function selectedSeats() {
 	heading.appendChild(information);
 }
 
+(function checkName() {
+	var name = document.getElementById('name').addEventListener('blur', function() {
+		var reg = new RegExp('^[a-zA-Z]{3,}$', 'g');
+
+		if (!reg.test(this.value)) {
+            this.classList.add('invalid');
+        } else {
+            this.classList.remove('invalid');
+        }
+	}, false)
+})();
+
+(function checkPhone() {
+	var phone = document.getElementById('phone').addEventListener('blur', function() {
+		var reg = /^([0-9]{3}[\s-])([0-9]{3}[\s-])[0-9]{3}$/;
+
+		if (!reg.test(this.value)) {
+            this.classList.add('invalid');
+        } else {
+            this.classList.remove('invalid');
+        }
+	}, false)
+})();
+
 function confirm() {
 	var btnNext = document.getElementById('next'),
 		modal = document.querySelector('.modal'),
@@ -67,7 +104,7 @@ function confirm() {
 		confirmBtn = document.querySelector('.confirmBtn'),
 		modalSummary = document.querySelector('.summary'),
 		okBtn = document.querySelector('.summary .confirmBtn'),
-		chosenSeat = document.getElementsByClassName('chosen');
+		chosenSeat = document.getElementsByClassName('chosen'),
 		reserved = document.getElementsByClassName('reserved');
 
 	btnNext.addEventListener('click', function(e) {
@@ -106,6 +143,7 @@ function confirm() {
 		[].forEach.call(reserved, function(el) {
 			el.classList.remove('chosen');
 		});
+		checkSelected();
 	});
 };
 
@@ -114,4 +152,6 @@ confirm();
 function clearInfo() {
 	var information = document.querySelector('header span');
 	var heading = document.getElementsByTagName('header')[0].removeChild(information);
+	document.getElementById('phone').value = '';
+	document.getElementById('name').value = '';
 };

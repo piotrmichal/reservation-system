@@ -71,3 +71,12 @@ div.seat.reserved {
 		cursor: not-allowed;
 	}
 }
+
+input.invalid {
+	background: #FFEDED;
+	border: 2px solid #FF7A7A;
+}
+
+.wrapper button.active {
+	visibility: visible;
+}

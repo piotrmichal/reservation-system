@@ -59,6 +59,7 @@ body {
 			padding: 1rem 5rem;
 			border-radius: .3rem;
 			display: block;
+			visibility: hidden;
 			margin: 0 auto;
 			cursor: pointer;
 		}
@@ -118,7 +119,8 @@ body {
 					font-size: 1.7rem;
 				}
 
-				input[type="text"] {
+				input[type="text"],
+				input[type="tel"] {
 					display: block;
 					margin-bottom: 3rem;
 					width: 60%;
