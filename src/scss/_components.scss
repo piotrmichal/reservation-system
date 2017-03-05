@@ -1,9 +1,3 @@
-div.seat.chosen {
-	background: url('../img/user.png') center, #85A100;
-	background-size: cover;
-	color: transparent;
-}
-
 .space {
 	margin-right: 5rem;
 }
@@ -39,7 +33,7 @@ form button {
 	font-weight: bold;
 	border: none;
 	padding: .8rem 4rem;
-	border-radius: .3rem;
+	border-radius: .2rem;
 	text-align: center;
 	cursor: pointer;
 }
@@ -61,11 +55,20 @@ div.modal div.show {
 	display: flex;
 }
 
-div.seat.reserved {
-	background: url('../img/user.png') center, #101010;
+div.seat.chosen {
+	background: url('../img/user.png') center, #0A0A0A;
 	background-size: cover;
 	color: transparent;
-	opacity: .7;
+}
+
+div.seat.reserved {
+	background: linear-gradient(
+			rgba(0, 0, 0, .6),
+			rgba(0, 0, 0, .6)
+			),
+		url('../img/user.png') center;
+	background-size: cover;
+	color: transparent;
 
 	&:hover {
 		cursor: not-allowed;
