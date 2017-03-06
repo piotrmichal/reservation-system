@@ -1,3 +1,9 @@
+html, body {
+	padding: 0;
+	margin: 0;
+	font-size: 10px;
+}
+
 body {
 	background: radial-gradient(#888, #101010) fixed;
 	font-family: 'Roboto', sans-serif;
@@ -13,7 +19,6 @@ body {
 
 		.screen {
 			width: 100%;
-			height: 2rem;
 			background-color: #EFEFEF;
 			color: #505050;
 			box-shadow: 0 0 1.5rem 1rem rgba(255, 255, 255, .5);
@@ -26,7 +31,7 @@ body {
 		}
 
 		.seats {
-			margin: 6rem 0 3rem 0;
+			margin: 6rem 0 3rem -.8rem;
 			display: flex;
 			justify-content: center;
 			align-items: center;
@@ -51,13 +56,13 @@ body {
 		}
 
 		button {
-			background-image: linear-gradient(#D4FC23, #416D00);
-			color: #202020;
+			background-image: $btnGradient;
+			color: #FFF;
 			text-transform: uppercase;
 			font-weight: bold;
 			font-size: 1.6rem;
 			border: none;
-			padding: 1rem 5rem;
+			padding: 1rem 8rem;
 			border-radius: .2rem;
 			display: block;
 			visibility: hidden;
@@ -78,7 +83,7 @@ body {
 		background-color: #202020;
 
 		&:hover {
-			background: url('../img/user.png') center, #585756;
+			background: $userImg, #585756;
 			background-size: cover;
 			color: transparent;
 			cursor: pointer;
@@ -95,8 +100,7 @@ body {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		background: linear-gradient( rgba(0, 0, 0, .5),
-					rgba(0, 0, 0, .5));
+		background: $overlay;
 
 		.confirm {
 			display: none;

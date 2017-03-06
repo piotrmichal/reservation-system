@@ -26,8 +26,8 @@ header {
 
 form button {
 	margin: 3.5rem 2rem 0 0;
-	background-image: linear-gradient(#D4FC23, #416D00);
-	color: #202020;
+	background-image: $btnGradient;
+	color: #FFF;
 	text-transform: uppercase;
 	font-size: 1.4rem;
 	font-weight: bold;
@@ -40,7 +40,7 @@ form button {
 
 
 .back {
-	background-image: linear-gradient(#FFC700, #FF6200);
+	background-image: $backBtn;
 }
 
 .confirmBtn {
@@ -56,17 +56,13 @@ div.modal div.show {
 }
 
 div.seat.chosen {
-	background: url('../img/user.png') center, #0A0A0A;
+	background: $userImg, #1E001E;
 	background-size: cover;
 	color: transparent;
 }
 
 div.seat.reserved {
-	background: linear-gradient(
-			rgba(0, 0, 0, .6),
-			rgba(0, 0, 0, .6)
-			),
-		url('../img/user.png') center;
+	background: $overlay, $userImg, #11011F;
 	background-size: cover;
 	color: transparent;
 
@@ -76,8 +72,8 @@ div.seat.reserved {
 }
 
 input.invalid {
-	background: #FFEDED;
-	border: 2px solid #FF7A7A;
+	background: #FFDDDE;
+	border: 2px solid #DD595C;
 }
 
 .wrapper button.active {
