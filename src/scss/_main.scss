@@ -7,15 +7,16 @@ html, body {
 body {
 	background: radial-gradient(#888, #101010) fixed;
 	font-family: 'Roboto', sans-serif;
-	height: 100vh;
+	color: #FFF;
+	min-height: 100vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	flex-direction: column;
 
 	.wrapper {
 		box-sizing: border-box;
 		min-height: 1rem;
+		margin-left: 20rem;
 
 		.screen {
 			width: 100%;
@@ -66,7 +67,7 @@ body {
 			border-radius: .2rem;
 			display: block;
 			visibility: hidden;
-			margin: 0 auto;
+			margin: 0 auto 1rem;
 			cursor: pointer;
 		}
 	}
@@ -75,7 +76,6 @@ body {
 		border: 1px solid #000;
 		width: 4.5rem;
 		height: 4.5rem;
-		color: #FFF;
 		text-align: center;
 		line-height: 4.5rem;
 		box-sizing: border-box;
@@ -87,6 +87,28 @@ body {
 			background-size: cover;
 			color: transparent;
 			cursor: pointer;
+		}
+	}
+
+	aside {
+		min-width: 20rem;
+
+		.legend {
+			list-style-type: none;
+			padding-left: 5rem;
+			margin: 0;
+
+			li {
+				margin: 1.5rem 0;
+				font-size: 1.6rem;
+				display: table;
+
+				span {
+					display: table-cell;
+					vertical-align: middle;
+					padding-left: 1.2rem;
+				}
+			}
 		}
 	}
 
